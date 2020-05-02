@@ -1,0 +1,60 @@
+.toplogo{
+height: 50px;
+width:auto;
+}
+*{
+margin: 0px;
+padding: 0px;
+box-sizing:border-box;
+font-family: Optima, sans-serif;
+font-family: 'Josefin Sans', sans-serif;
+}
+.carousel-inner img{
+margin-top: auto;
+width: 100%;
+height: 92vh;
+}
+.carousel1
+{
+font-family: Brush Script MT, Brush Script Std, cursive;
+}
+.carousel2
+{
+font-family: Apple Chancery, cursive;
+/*font-family: Snell Roundhand, cursive;*/
+}
+.navbar-nav > li{
+padding-left:15px;
+padding-right:15px;
+}
+.nav a{
+font-size: 1.1em !important;
+}
+.colorchange
+{
+animation: colorchange .8s infinite;
+}
+@keyframes colorchange{
+0%{color: red}
+25%{color:#bf55ec;}
+50%{color: white;}
+100%{color: orange;}
+}
+#myBtn {
+display: none;
+position: fixed;
+bottom: 40px;
+right: 30px;
+z-index: 99;
+font-size: 24px;
+border: none;
+outline: none;
+background-color: none;
+color: red;
+cursor: pointer;
+padding: 2px;
+border-radius:5px;
+}
+#myBtn:hover {
+background-color: #555;
+}
