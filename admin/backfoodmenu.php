@@ -4,7 +4,6 @@ require 'connection.php';
 extract($_POST);
 
 if(isset($_POST['readrecord'])){
-	$data = '<table class="table table-bordered table-striped">
 	$data = '<table class="table table-bordered table-striped text-center">
 	<tr>
 		<th>No.</th>
@@ -45,8 +44,6 @@ if(isset($_POST['readrecord'])){
 	echo "$data";
 }
 //insert food item
-if(isset($_POST['foodname']) && isset($_POST['foodtype']) && isset($_POST['description']) && isset($_POST['price'])){
-	$query="INSERT INTO `food`(`foodname`, `foodtype`, `description`, `price`) VALUES ('$foodname','$foodtype','$description','$price')";
 if(isset($_POST['foodname']) && isset($_POST['foodtype']) && isset($_POST['description']) && isset($_POST['price']) && isset($_POST['availability'])){
 	$query="INSERT INTO `food`(`foodname`, `foodtype`, `description`, `price`,`availability`) VALUES ('$foodname','$foodtype','$description','$price','$availability')";
 	mysqli_query($con,$query);
@@ -92,7 +89,6 @@ if(isset($_POST['updatehidden_food_id'])){
 	$updateprice = $_POST['updateprice'];
 	$updateavailability=$_POST['updateavailability'];
 
-	$query=" UPDATE `food` SET `foodname`='$updatefoodname',`foodtype`='$updatefoodtype',`description`='$updatedescription',`price`='$updateprice'  WHERE food_id='$updatehidden_food_id'";
 	$query=" UPDATE `food` SET `foodname`='$updatefoodname',`foodtype`='$updatefoodtype',`description`='$updatedescription',`price`='$updateprice' ,`availability`='$updateavailability' WHERE food_id='$updatehidden_food_id'";
 	mysqli_query($con,$query);
 }

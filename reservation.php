@@ -4,6 +4,7 @@
 	<head>
 		<title>East-West Restaurant | reservation</title>
 		<?php include'common/header.php';?>
+		<!-- <link rel="stylesheet" type="text/css" href="css/style.css"> -->
 	</head>
 	<body>
 		<section>
@@ -48,6 +49,45 @@
 					</div>
 				</nav>
 			</header>
+			<div class="container-fluid res">
+				<div class="row">
+					
+					<div class="col-md-4 col-sm-4 col-xs-12">
+						<!-- form start -->
+						<form action="check.php" class="form-conatiner" method="POST">
+							<h1 class="text-white text-center">Reservation</h1>
+							<div class="form-group text-white">
+								<label>Date</label>
+								<input type="date" name="date" value=""class="form-control" autocomplete="off" placeholder="date">
+							</div>
+							<div class="form-group text-white">
+								<label>person</label>
+								<input type="number" min="1" step="1" name="person" value=""class="form-control" autocomplete="off" placeholder="person">
+							</div>
+							<div class="form-group text-white">
+								<label for='slot'>slot</label>
+								<select id='slot'>
+									<option value="12:00pm-1:00pm">12:00pm-1:00pm</option>
+									<option value="1:30pm-2:30pm">1:30pm-2:30pm</option>
+									<option value="3:00pm-4:00pm">3:00pm-4:00pm</option>
+									<option value="4:30pm-5:30pm">4:30pm-5:30pm</option>
+									<option value="6:00pm-7:00pm">6:00pm-7:00pm</option>
+									<option value="7:30pm-8:30pm">7:30pm-8:30pm</option>
+									<option value="9:00pm-10:00pm">9:00pm-10:00pm</option>
+								</select>
+							</div>
+							<div class="text-center">
+								<input type="submit" class="btn btn-success " name="submit">
+							</div>
+							
+						</form>
+						<!-- form end -->
+					</div>
+					<div class="col-md-6 col-sm-6 col-xs-12"></div>
+					
+				</div>
+				
+			</div>
 			<!--footer -->
 			<?php include'common/footer.php'; ?>
 		</section>

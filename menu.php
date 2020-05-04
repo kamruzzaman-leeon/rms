@@ -21,7 +21,7 @@
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="nav navbar-nav ml-auto">
 							<li class="nav-item">
-								<a class="nav-link" href="#"><i class="fa fa-fw fa-home"></i> Home</a>
+								<a class="nav-link" href="index.php"><i class="fa fa-fw fa-home"></i> Home</a>
 							</li>
 							<li class="nav-item">
 								<a class="nav-link" href="reservation.php"><i class="fa fa-calendar-check-o"></i> Reservation</a>
