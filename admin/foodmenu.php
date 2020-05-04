@@ -42,6 +42,13 @@
 								<label>Price</label>
 								<input type="text" name="" id="price" class="form-control" placeholder="Price">
 							</div>
+							<div class="form-group">
+								<label>Availability:</label>
+								<select id="availability">
+									<option value="YES">YES</option>
+									<option value="NO">NO</option>
+								</select>
+							</div>
 					
 							<!-- Modal footer -->
 							<div class="modal-footer">
@@ -81,6 +88,13 @@
 								<label>Update Price</label>
 								<input type="text" name="" id="update_price" class="form-control" placeholder="Price">
 							</div>
+							<div class="form-group">
+								<label>Update Availability:</label>
+								<select id="update_availability">
+									<option value="YES">YES</option>
+									<option value="NO">NO</option>
+								</select>
+							</div>
 					
 							<!-- Modal footer -->
 							<div class="modal-footer">
@@ -117,6 +131,8 @@
 				var foodtype =$('#foodtype').val();
 				var description =$('#description').val();
 				var price =$('#price').val();
+				var availability =$('#availability').val();
+
 				$.ajax({
 					url:"backfoodmenu.php",
 					type:'post',
@@ -125,6 +141,7 @@
 						foodtype:foodtype,
 						description:description,
 						price:price,
+						availability:availability
 
 						},
 
@@ -160,6 +177,7 @@
 						$('#update_foodtype').val(food.foodtype);
 						$('#update_description').val(food.description);
 						$('#update_price').val(food.price);
+						$('#update_availability').val(food.availability);
 					}
 				);
 				$('#update_food_modal').modal("show");
@@ -171,6 +189,7 @@
 				var updatefoodtype = $('#update_foodtype').val();
 				var updatedescription = $('#update_description').val();
 				var updateprice = $('#update_price').val();
+				var updateavailability = $('#update_availability').val();
 				
 				var updatehidden_food_id = $('#hidden_food_id').val();
 
@@ -180,6 +199,8 @@
 					updatefoodtype:updatefoodtype,
 					updatedescription:updatedescription,
 					updateprice:updateprice
+					updateprice:updateprice,
+					updateavailability:updateavailability
 				},
 				function(data,status){
 					$('#update_food_modal').modal("hide");

@@ -5,12 +5,14 @@ extract($_POST);
 
 if(isset($_POST['readrecord'])){
 	$data = '<table class="table table-bordered table-striped">
+	$data = '<table class="table table-bordered table-striped text-center">
 	<tr>
 		<th>No.</th>
 		<th>Food Name</th>
 		<th>Food type</th>
 		<th>Description</th>
 		<th>Price</th>
+		<th>Availability</th>
 		<th>Edit Action</th>
 		<th>Delete Action</th>
 		
@@ -26,6 +28,7 @@ if(isset($_POST['readrecord'])){
 			<td>'.$row['foodtype'].'</td>
 			<td>'.$row['description'].'</td>
 			<td>'.$row['price'].'</td>
+			<td>'.$row['availability'].'</td>
 			<td>
 			<button onclick="EditFood('.$row['food_id'].')"
 			class="btn btn-warning">Edit</button>
@@ -44,6 +47,8 @@ if(isset($_POST['readrecord'])){
 //insert food item
 if(isset($_POST['foodname']) && isset($_POST['foodtype']) && isset($_POST['description']) && isset($_POST['price'])){
 	$query="INSERT INTO `food`(`foodname`, `foodtype`, `description`, `price`) VALUES ('$foodname','$foodtype','$description','$price')";
+if(isset($_POST['foodname']) && isset($_POST['foodtype']) && isset($_POST['description']) && isset($_POST['price']) && isset($_POST['availability'])){
+	$query="INSERT INTO `food`(`foodname`, `foodtype`, `description`, `price`,`availability`) VALUES ('$foodname','$foodtype','$description','$price','$availability')";
 	mysqli_query($con,$query);
 }
 //delete food item 
@@ -85,8 +90,10 @@ if(isset($_POST['updatehidden_food_id'])){
 	$updatefoodtype = $_POST['updatefoodtype'];
 	$updatedescription = $_POST['updatedescription'];
 	$updateprice = $_POST['updateprice'];
+	$updateavailability=$_POST['updateavailability'];
 
 	$query=" UPDATE `food` SET `foodname`='$updatefoodname',`foodtype`='$updatefoodtype',`description`='$updatedescription',`price`='$updateprice'  WHERE food_id='$updatehidden_food_id'";
+	$query=" UPDATE `food` SET `foodname`='$updatefoodname',`foodtype`='$updatefoodtype',`description`='$updatedescription',`price`='$updateprice' ,`availability`='$updateavailability' WHERE food_id='$updatehidden_food_id'";
 	mysqli_query($con,$query);
 }
 
