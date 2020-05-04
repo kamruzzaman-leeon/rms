@@ -26,7 +26,6 @@
 								<a class="nav-link" href="reservation.php"><i class="fa fa-calendar-check-o"></i> Reservation<span class="sr-only">(current)</span></a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="#"><i class="fa fa-list-alt"></i> Menu</a>
 								<a class="nav-link" href="menu.php"><i class="fa fa-list-alt"></i> Menu</a>
 							</li>
 							<li class="nav-item dropdown">
