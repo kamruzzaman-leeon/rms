@@ -198,7 +198,6 @@
 					updatefoodname:updatefoodname,
 					updatefoodtype:updatefoodtype,
 					updatedescription:updatedescription,
-					updateprice:updateprice
 					updateprice:updateprice,
 					updateavailability:updateavailability
 				},
