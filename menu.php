@@ -2,11 +2,12 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>East-West Restaurant | reservation</title>
+		<title>East-West Restaurant | Home</title>
 		<?php include'common/header.php';?>
 	</head>
+	
 	<body>
-		<section>
+		<div>
 			<header>
 				<!-- header part -->
 				<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -20,14 +21,13 @@
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="nav navbar-nav ml-auto">
 							<li class="nav-item">
-								<a class="nav-link" href="index.php"><i class="fa fa-fw fa-home"></i> Home</a>
-							</li>
-							<li class="nav-item active">
-								<a class="nav-link" href="reservation.php"><i class="fa fa-calendar-check-o"></i> Reservation<span class="sr-only">(current)</span></a>
+								<a class="nav-link" href="#"><i class="fa fa-fw fa-home"></i> Home</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="#"><i class="fa fa-list-alt"></i> Menu</a>
-								<a class="nav-link" href="menu.php"><i class="fa fa-list-alt"></i> Menu</a>
+								<a class="nav-link" href="reservation.php"><i class="fa fa-calendar-check-o"></i> Reservation</a>
+							</li>
+							<li class="nav-item active">
+								<a class="nav-link" href="menu.php"><i class="fa fa-list-alt"></i> Menu<span class="sr-only">(current)</span></a>
 							</li>
 							<li class="nav-item dropdown">
 								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-fw fa-user"></i> Customer</a>
@@ -49,8 +49,4 @@
 					</div>
 				</nav>
 			</header>
-			<!--footer -->
 			<?php include'common/footer.php'; ?>
-		</section>
-	</body>
-</html>

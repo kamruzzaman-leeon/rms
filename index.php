@@ -4,6 +4,7 @@
 	<head>
 		<title>East-West Restaurant | Home</title>
 		<?php include'common/header.php';?>
+		<button onclick="topFunction()" id="myBtn" title="Go to top"><span class="colorchange"><i class="fas fa-angle-double-up"></i></span></button>
 	</head>
 	
 	<body>
@@ -27,7 +28,7 @@
 								<a class="nav-link" href="reservation.php"><i class="fa fa-calendar-check-o"></i> Reservation</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="#"><i class="fa fa-list-alt"></i> Menu</a>
+								<a class="nav-link" href="menu.php"><i class="fa fa-list-alt"></i> Menu</a>
 							</li>
 							<li class="nav-item dropdown">
 								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-fw fa-user"></i> Customer</a>
@@ -113,7 +114,7 @@
 							<h1 class="text-center text-capitalize"> welcome to East-West Restaurant</h1>
 							<hr>
 							<p class="pt-4 lead">
-								We serves the highest quality traditinal South Indian Food, Chinese, Se Food & Kebab. Here food is more than a meal, its a culinary experience.
+								We serves the highest quality traditinal bangla food, South Indian Food, Chinese, Se Food & Kebab. Here food is more than a meal, its a culinary experience.
 								All dishes can be prepared of your request in the degree of mind medium, hot very hot and spicy.
 							</p>
 							
