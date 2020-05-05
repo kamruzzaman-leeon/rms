@@ -10,7 +10,7 @@ if(isset($_POST['readrecord'])){
 		<th>Slot</th>
 		<th>Status</th>
 	</tr>';
-	$displayquery="SELECT `date`,`person`,`slot`,`status` FROM `customer`NATURAL JOIN `rev` NATURAL JOIN `reservation`";
+	$displayquery="SELECT `date`,`person`,`slot`,`status` FROM `reservation` NATURAL JOIN 'rev' NATURAL JOIN 'customer'";
 
 	$result = mysqli_query($con,$displayquery);
 	if(mysqli_num_rows($result) > 0){

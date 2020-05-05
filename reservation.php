@@ -93,7 +93,7 @@
 							</div>
 							<div class="form-group">
 								<label>Status</label>
-								<select Id="status"class="form-control">
+								<select id="status"class="form-control">
 									<option value="Pending">Pending</option>
 								</select>
 							</div>
