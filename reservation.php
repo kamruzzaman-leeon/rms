@@ -7,7 +7,7 @@
 		<!-- <link rel="stylesheet" type="text/css" href="css/style.css"> -->
 	</head>
 	<body>
-		<section>
+		<section class="res">
 			<header>
 				<!-- header part -->
 				<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -49,24 +49,35 @@
 					</div>
 				</nav>
 			</header>
-			<div class="container-fluid res">
-				<div class="row">
-					
-					<div class="col-md-4 col-sm-4 col-xs-12">
-						<!-- form start -->
-						<form action="check.php" class="form-conatiner" method="POST">
-							<h1 class="text-white text-center">Reservation</h1>
-							<div class="form-group text-white">
-								<label>Date</label>
-								<input type="date" name="date" value=""class="form-control" autocomplete="off" placeholder="date">
+			<div class="container">
+			<h1 class="text-primary text-uppercase text-center">Reservation</h1>
+			
+			<div class="d-flex justify-content-end">
+				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Add Reservation</button>
+			</div>
+			<div>
+				<h2 class="text-danger">All Records</h2>
+				<div id="records_contant"></div>
+			</div>
+			<!-- The Modal -->
+			<div class="modal" id="myModal">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<!-- Modal Header -->
+						<div class="modal-header">
+							<h4 class="modal-title">Add Reservation</h4>
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+						</div>
+						<!-- Modal body -->
+						<div class="modal-body">
+							<div class="form-group">
+								<label>date</label>
+								<input type="date" name="date" id="date" class="form-control">
 							</div>
-							<div class="form-group text-white">
-								<label>person</label>
-								<input type="number" min="1" step="1" name="person" value=""class="form-control" autocomplete="off" placeholder="person">
-							</div>
-							<div class="form-group text-white">
-								<label for='slot'>slot</label>
-								<select id='slot'>
+							<div class="form-group">
+								<label>Slot</label>
+								<select id='slot' class="form-control">
+									<option value="">-----</option>
 									<option value="12:00pm-1:00pm">12:00pm-1:00pm</option>
 									<option value="1:30pm-2:30pm">1:30pm-2:30pm</option>
 									<option value="3:00pm-4:00pm">3:00pm-4:00pm</option>
@@ -76,20 +87,221 @@
 									<option value="9:00pm-10:00pm">9:00pm-10:00pm</option>
 								</select>
 							</div>
-							<div class="text-center">
-								<input type="submit" class="btn btn-success " name="submit">
+							<div class="form-group">
+								<label>Person</label>
+								<input type="number" min="1" step="1" id="update_person" value=""class="form-control">
 							</div>
-							
-						</form>
-						<!-- form end -->
-					</div>
-					<div class="col-md-6 col-sm-6 col-xs-12"></div>
+							<div class="form-group">
+								<label>Status</label>
+								<select Id="status"class="form-control">
+									<option value="Pending">Pending</option>
+								</select>
+							</div>
 					
+							<!-- Modal footer -->
+							<div class="modal-footer">
+								<button type="button" class="btn btn-success" data-dismiss="modal" onclick="addRecord()">Save</button>
+								<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+							</div>
+						</div>
+					</div>
 				</div>
-				
 			</div>
-			<!--footer -->
-			<?php include'common/footer.php'; ?>
-		</section>
+
+
+			<!--///////// update modal//////////// -->
+			<!-- <div class="modal" id="update_reservation_modal">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						
+						<div class="modal-header">
+							<h4 class="modal-title">Update Reservation</h4>
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+						</div>
+						
+						<div class="modal-body">
+							<div class="form-group">
+								<label>update date</label>
+								<input type="date" name="date" id="update_date" class="form-control">
+							</div>
+							<div class="form-group">
+								<label>Update Slot</label>
+								<select id='update_slot' class="form-control">
+									<option value="">-----</option>
+									<option value="12:00pm-1:00pm">12:00pm-1:00pm</option>
+									<option value="1:30pm-2:30pm">1:30pm-2:30pm</option>
+									<option value="3:00pm-4:00pm">3:00pm-4:00pm</option>
+									<option value="4:30pm-5:30pm">4:30pm-5:30pm</option>
+									<option value="6:00pm-7:00pm">6:00pm-7:00pm</option>
+									<option value="7:30pm-8:30pm">7:30pm-8:30pm</option>
+									<option value="9:00pm-10:00pm">9:00pm-10:00pm</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<label>Update Person</label>
+								<input type="number" min="1" step="1" id="update_person" name="person" value=""class="form-control" autocomplete="off" placeholder="person">
+							</div>
+							<div class="form-group">
+								<label>Update status</label>
+								<select Id="update_status"class="form-control">
+									<option value="Pending">Pending</option>
+								</select>
+							</div>
+					
+													<div class="modal-footer">
+								<button type="button" class="btn btn-success" data-dismiss="modal" onclick="updateRecord()">Save</button>
+								<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+								<input type="hidden" name="" id="hidden_food_id">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div> -->
+								
+		
+		
+	</section>
+		<?php include'common/footer.php'; ?>
+		<script>
+			$(document).ready(function()
+			{
+				readRecords(); 
+			});
+			function readRecords()
+			{
+				var readrecord ="readrecord";
+				$.ajax({
+					url:"backreservation.php",
+					type:"post",
+					data:{
+						readrecord:readrecord},
+						success:function(data,status){
+							$('#records_contant').html(data);
+						}
+					
+				})
+			} 
+			function addRecord(){
+				var date =$('#date').val();
+				var slot =$('#slot').val();
+				var person =$('#person').val();
+				var status =$('#status').val();
+
+				$.ajax({
+					url:"backfoodmenu.php",
+					type:'post',
+					data:{
+						date:date,
+						slot:slot,
+						person:person,
+						status:status
+
+						},
+
+						success:function(data,status)
+						{
+							readRecords();
+						}
+				});
+			}
+			// delete food record
+			// function DeleteFood(deleteid){
+			// 	var conf= confirm("Are you sure?");
+			// 	if(conf==true){
+			// 		$.ajax({
+			// 			url:"backfoodmenu.php",
+			// 			type:"post",
+			// 			data:{ deleteid:deleteid },
+			// 			success:function(data,status){
+			// 				readRecords();
+			// 			}
+			// 		});
+			// 	}
+			// }
+
+			// function EditFood(editid){
+			// 	$('#hidden_food_id').val(editid);
+
+			// 	$.post("backfoodmenu.php", {
+			// 		editid:editid }
+			// 		,function(data,status){
+			// 			var food=JSON.parse(data);
+			// 			$('#update_foodname').val(food.foodname);
+			// 			$('#update_foodtype').val(food.foodtype);
+			// 			$('#update_description').val(food.description);
+			// 			$('#update_price').val(food.price);
+			// 			$('#update_availability').val(food.availability);
+			// 		}
+			// 	);
+			// 	$('#update_reservation_modal').modal("show");
+			// }
+
+
+			// function UpdateFood(){
+			// 	var updatefoodname = $('#update_foodname').val();
+			// 	var updatefoodtype = $('#update_foodtype').val();
+			// 	var updatedescription = $('#update_description').val();
+			// 	var updateprice = $('#update_price').val();
+			// 	var updateavailability = $('#update_availability').val();
+				
+			// 	var updatehidden_food_id = $('#hidden_food_id').val();
+
+			// 	$.post("backfoodmenu.php",{
+			// 		updatehidden_food_id:updatehidden_food_id,
+			// 		updatefoodname:updatefoodname,
+			// 		updatefoodtype:updatefoodtype,
+			// 		updatedescription:updatedescription,
+			// 		updateprice:updateprice,
+			// 		updateavailability:updateavailability
+			// 	},
+			// 	function(data,status){
+			// 		$('#update_food_modal').modal("hide");
+			// 			readRecords();
+			// 		}
+
+			// 	);
+			// }
+
+		
+
+		</script>
+		
+			<script>
+				$(document).ready(function()
+				{
+					readRecords();
+				});
+				function readRecords(){
+					var readrecord="readrecord";
+					$.ajax({
+						url:"backreservation.php";
+						type:"post",
+						data:{
+						readrecord:readrecord},
+						success:function(data,status){
+						$('#records_contant').html(data);
+						}
+					})
+				}
+				function addRecord(){
+					var date=$('#date').val();
+					var person=$('#person').val();
+					var slot=$('#slot').val();
+
+					$.ajax({
+						url:"backreservation.php",
+						type:'post',
+						data:{
+							date:date,
+							person:person,
+							slot:slot
+						},
+						success:function(data,status)
+						{readRecords()};
+					});
+				}
+			</script>
+			
+			
 	</body>
 </html>
