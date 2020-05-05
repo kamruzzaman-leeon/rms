@@ -93,7 +93,7 @@
 							</div>
 							<div class="form-group">
 								<label>Status</label>
-								<select Id="status"class="form-control">
+								<select id="status"class="form-control">
 									<option value="Pending">Pending</option>
 								</select>
 							</div>
@@ -108,57 +108,6 @@
 				</div>
 			</div>
 
-
-			<!--///////// update modal//////////// -->
-			<!-- <div class="modal" id="update_reservation_modal">
-				<div class="modal-dialog">
-					<div class="modal-content">
-						
-						<div class="modal-header">
-							<h4 class="modal-title">Update Reservation</h4>
-							<button type="button" class="close" data-dismiss="modal">&times;</button>
-						</div>
-						
-						<div class="modal-body">
-							<div class="form-group">
-								<label>update date</label>
-								<input type="date" name="date" id="update_date" class="form-control">
-							</div>
-							<div class="form-group">
-								<label>Update Slot</label>
-								<select id='update_slot' class="form-control">
-									<option value="">-----</option>
-									<option value="12:00pm-1:00pm">12:00pm-1:00pm</option>
-									<option value="1:30pm-2:30pm">1:30pm-2:30pm</option>
-									<option value="3:00pm-4:00pm">3:00pm-4:00pm</option>
-									<option value="4:30pm-5:30pm">4:30pm-5:30pm</option>
-									<option value="6:00pm-7:00pm">6:00pm-7:00pm</option>
-									<option value="7:30pm-8:30pm">7:30pm-8:30pm</option>
-									<option value="9:00pm-10:00pm">9:00pm-10:00pm</option>
-								</select>
-							</div>
-							<div class="form-group">
-								<label>Update Person</label>
-								<input type="number" min="1" step="1" id="update_person" name="person" value=""class="form-control" autocomplete="off" placeholder="person">
-							</div>
-							<div class="form-group">
-								<label>Update status</label>
-								<select Id="update_status"class="form-control">
-									<option value="Pending">Pending</option>
-								</select>
-							</div>
-					
-													<div class="modal-footer">
-								<button type="button" class="btn btn-success" data-dismiss="modal" onclick="updateRecord()">Save</button>
-								<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-								<input type="hidden" name="" id="hidden_food_id">
-							</div>
-						</div>
-					</div>
-				</div>
-			</div> -->
-								
-		
 		
 	</section>
 		<?php include'common/footer.php'; ?>
@@ -188,7 +137,7 @@
 				var status =$('#status').val();
 
 				$.ajax({
-					url:"backfoodmenu.php",
+					url:"backreservation.php",
 					type:'post',
 					data:{
 						date:date,
@@ -204,104 +153,8 @@
 						}
 				});
 			}
-			// delete food record
-			// function DeleteFood(deleteid){
-			// 	var conf= confirm("Are you sure?");
-			// 	if(conf==true){
-			// 		$.ajax({
-			// 			url:"backfoodmenu.php",
-			// 			type:"post",
-			// 			data:{ deleteid:deleteid },
-			// 			success:function(data,status){
-			// 				readRecords();
-			// 			}
-			// 		});
-			// 	}
-			// }
-
-			// function EditFood(editid){
-			// 	$('#hidden_food_id').val(editid);
-
-			// 	$.post("backfoodmenu.php", {
-			// 		editid:editid }
-			// 		,function(data,status){
-			// 			var food=JSON.parse(data);
-			// 			$('#update_foodname').val(food.foodname);
-			// 			$('#update_foodtype').val(food.foodtype);
-			// 			$('#update_description').val(food.description);
-			// 			$('#update_price').val(food.price);
-			// 			$('#update_availability').val(food.availability);
-			// 		}
-			// 	);
-			// 	$('#update_reservation_modal').modal("show");
-			// }
-
-
-			// function UpdateFood(){
-			// 	var updatefoodname = $('#update_foodname').val();
-			// 	var updatefoodtype = $('#update_foodtype').val();
-			// 	var updatedescription = $('#update_description').val();
-			// 	var updateprice = $('#update_price').val();
-			// 	var updateavailability = $('#update_availability').val();
-				
-			// 	var updatehidden_food_id = $('#hidden_food_id').val();
-
-			// 	$.post("backfoodmenu.php",{
-			// 		updatehidden_food_id:updatehidden_food_id,
-			// 		updatefoodname:updatefoodname,
-			// 		updatefoodtype:updatefoodtype,
-			// 		updatedescription:updatedescription,
-			// 		updateprice:updateprice,
-			// 		updateavailability:updateavailability
-			// 	},
-			// 	function(data,status){
-			// 		$('#update_food_modal').modal("hide");
-			// 			readRecords();
-			// 		}
-
-			// 	);
-			// }
-
-		
-
+			
 		</script>
 		
-			<script>
-				$(document).ready(function()
-				{
-					readRecords();
-				});
-				function readRecords(){
-					var readrecord="readrecord";
-					$.ajax({
-						url:"backreservation.php";
-						type:"post",
-						data:{
-						readrecord:readrecord},
-						success:function(data,status){
-						$('#records_contant').html(data);
-						}
-					})
-				}
-				function addRecord(){
-					var date=$('#date').val();
-					var person=$('#person').val();
-					var slot=$('#slot').val();
-
-					$.ajax({
-						url:"backreservation.php",
-						type:'post',
-						data:{
-							date:date,
-							person:person,
-							slot:slot
-						},
-						success:function(data,status)
-						{readRecords()};
-					});
-				}
-			</script>
-			
-			
 	</body>
 </html>
