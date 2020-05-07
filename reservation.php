@@ -57,7 +57,7 @@
 			</div>
 			<div>
 				<h2 class="text-danger">All Records</h2>
-				<div id="records_contant"></div>
+				<div id="allrecords"></div>
 			</div>
 			<!-- The Modal -->
 			<div class="modal" id="myModal">
@@ -72,7 +72,7 @@
 						<div class="modal-body">
 							<div class="form-group">
 								<label>date</label>
-								<input type="date" name="date" id="date" class="form-control">
+								<input type="date" name="" id="date" class="form-control">
 							</div>
 							<div class="form-group">
 								<label>Slot</label>
@@ -89,7 +89,7 @@
 							</div>
 							<div class="form-group">
 								<label>Person</label>
-								<input type="number" min="1" step="1" id="update_person" value=""class="form-control">
+								<input type="number" min="1" step="1" id="person" value=""class="form-control">
 							</div>
 							<div class="form-group">
 								<label>Status</label>
@@ -106,11 +106,9 @@
 						</div>
 					</div>
 				</div>
-			</div>
-
-		
+			</div>	
 	</section>
-		<?php include'common/footer.php'; ?>
+<?php include'common/footer.php'; ?> 
 		<script>
 			$(document).ready(function()
 			{
@@ -125,10 +123,10 @@
 					data:{
 						readrecord:readrecord},
 						success:function(data,status){
-							$('#records_contant').html(data);
+							$('#allrecords').html(data);
 						}
 					
-				})
+				});
 			} 
 			function addRecord(){
 				var date =$('#date').val();
