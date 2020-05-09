@@ -34,14 +34,14 @@ if(isset($_POST['readrecord'])){
 	$data .= '</table>';
 	echo "$data";
 }
-//insert food item
+
 if(isset($_POST['date']) && isset($_POST['person']) && isset($_POST['slot']) && isset($_POST['status'])){
 
 	
 	$query="INSERT INTO `reservation`( `customer`,`date`, `person`, `slot`, `status`) VALUES ('$c_id','$date','$person','$slot','$status')";
 	mysqli_query($con,$query);
 	
-	// echo $date." ".$slot." ".$person." ".$status;
+
 }
 
 
