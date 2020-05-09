@@ -35,10 +35,10 @@ if(isset($_POST['readrecord'])){
 	echo "$data";
 }
 
-if(isset($_POST['date']) && isset($_POST['person']) && isset($_POST['slot']) && isset($_POST['status'])){
+if(isset($_POST['date']) && isset($_POST['person']) && isset($_POST['slot']) && isset($_POST['status'])&&isset($c_id)){
 
 	
-	$query="INSERT INTO `reservation`( `customer`,`date`, `person`, `slot`, `status`) VALUES ('$c_id','$date','$person','$slot','$status')";
+	$query="INSERT INTO `reservation`( `customer_id`,`date`, `person`, `slot`, `status`) VALUES ('$c_id','$date','$person','$slot','$status')";
 	mysqli_query($con,$query);
 	
 
