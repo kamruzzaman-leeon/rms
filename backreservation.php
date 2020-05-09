@@ -12,7 +12,10 @@ if(isset($_POST['readrecord'])){
 		<th>Slot</th>
 		<th>Status</th>
 	</tr>';
-	$displayquery="SELECT `date`,`person`,`slot`,`status` FROM `reservation`";
+	session_start();
+	$c_id=$_SESSION['customer_id'];
+	
+	$displayquery="SELECT `date`,`person`,`slot`,`status` FROM `reservation` WHERE customer_id=$c_id ";
 
 	$result = mysqli_query($con,$displayquery);
 	if(mysqli_num_rows($result) > 0){
@@ -34,13 +37,10 @@ if(isset($_POST['readrecord'])){
 //insert food item
 if(isset($_POST['date']) && isset($_POST['person']) && isset($_POST['slot']) && isset($_POST['status'])){
 
-	// $date=$_POST['date'];
-	// $slot=$_POST['slot'];
-	// $person=$_POST['person'];
-	// $status=$_POST['status'];
 	
-	$query="INSERT INTO `reservation`( `date`, `person`, `slot`, `status`) VALUES ( '$date','$person','$slot','$status')";
+	$query="INSERT INTO `reservation`( `customer`,`date`, `person`, `slot`, `status`) VALUES ('$c_id','$date','$person','$slot','$status')";
 	mysqli_query($con,$query);
+	
 	// echo $date." ".$slot." ".$person." ".$status;
 }
 
