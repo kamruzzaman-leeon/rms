@@ -91,12 +91,12 @@
 								<label>Person</label>
 								<input type="number" min="1" step="1" id="person" value=""class="form-control">
 							</div>
-							<div class="form-group">
+							<!-- <div class="form-group">
 								<label>Status</label>
 								<select id="status"class="form-control">
 									<option value="Pending">Pending</option>
 								</select>
-							</div>
+							</div> -->
 					
 							<!-- Modal footer -->
 							<div class="modal-footer">
@@ -132,7 +132,7 @@
 				var date =$('#date').val();
 				var slot =$('#slot').val();
 				var person =$('#person').val();
-				var status =$('#status').val();
+				// var status =$('#status').val();
 
 				$.ajax({
 					url:"backreservation.php",
@@ -141,7 +141,7 @@
 						date:date,
 						slot:slot,
 						person:person,
-						status:status
+						// status:status
 
 						},
 
