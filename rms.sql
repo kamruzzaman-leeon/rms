@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 4.9.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 10, 2020 at 05:32 AM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.3
+-- Generation Time: May 10, 2020 at 02:10 PM
+-- Server version: 10.4.8-MariaDB
+-- PHP Version: 7.3.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -98,24 +98,28 @@ INSERT INTO `food` (`food_id`, `foodname`, `foodtype`, `description`, `price`, `
 CREATE TABLE `reservation` (
   `reservation_id` int(255) NOT NULL,
   `customer_id` int(10) NOT NULL,
-  `date` date NOT NULL,
+  `date` date DEFAULT NULL,
   `person` int(255) NOT NULL,
   `slot` varchar(255) NOT NULL,
-  `trn_date` date NOT NULL DEFAULT current_timestamp(),
-  `status` varchar(255) NOT NULL DEFAULT 'Pending'
+  `status` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `reservation`
 --
 
-INSERT INTO `reservation` (`reservation_id`, `customer_id`, `date`, `person`, `slot`, `trn_date`, `status`) VALUES
-(1, 1, '0000-00-00', 0, '', '2020-05-10', 'pending'),
-(45, 1, '0000-00-00', 5, '556', '2020-05-10', 'hg'),
-(48, 1, '0000-00-00', 4, '10', '2020-05-10', 'Pending'),
-(49, 2, '0000-00-00', 4, '5', '2020-05-10', 'Pending'),
-(50, 1, '0000-00-00', 111111, '12', '2020-05-10', 'Pending'),
-(51, 1, '0000-00-00', 0, 'test', '2020-05-10', 'Pending');
+INSERT INTO `reservation` (`reservation_id`, `customer_id`, `date`, `person`, `slot`, `status`) VALUES
+(52, 2, '0000-00-00', 22, '12am to 1 pm', 1),
+(53, 1, '2020-05-14', 33, '12to1', 1),
+(54, 1, '2020-05-19', 0, '1 am to 2am', 1),
+(55, 1, '2020-05-23', 66, '2 am to 3am', 1),
+(58, 1, '2019-02-04', 5, '1 am to 2am', 1),
+(59, 2, '2019-05-02', 66, '2 am to 3am', 1),
+(60, 2, '2019-05-02', 66, '2 am to 3am', 1),
+(61, 1, '2020-05-13', 4, '6:00pm-7:00pm', 1),
+(62, 1, '2020-05-13', 422, '6:00pm-7:00pm', 1),
+(63, 1, '2020-05-13', 422, '12:00pm-1:00pm', 1),
+(64, 1, '2020-05-13', 5, '12:00pm-1:00pm', 1);
 
 --
 -- Indexes for dumped tables
@@ -172,7 +176,7 @@ ALTER TABLE `food`
 -- AUTO_INCREMENT for table `reservation`
 --
 ALTER TABLE `reservation`
-  MODIFY `reservation_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `reservation_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- Constraints for dumped tables
