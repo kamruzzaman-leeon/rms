@@ -12,6 +12,7 @@ $result = mysqli_query($con,$query) or die(mysql_error());
 $rows = mysqli_num_rows($result);
 if($rows==1){
 $_SESSION['username'] = $username;
+$_SESSION['customer_id'] = $result->fetch_array(MYSQLI_ASSOC)["customer_id"];
 
 header("Location: index.php");
 }else{

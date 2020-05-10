@@ -3,7 +3,12 @@
 <html lang="en">
 	<head>
 		<title>East-West Restaurant | reservation</title>
-		<?php include'common/header.php';?>
+		<?php include'common/header.php';
+		echo "<script>console.log(".$_SESSION['customer_id'].");</script>";
+		
+		?>
+		
+
 		<!-- <link rel="stylesheet" type="text/css" href="css/style.css"> -->
 	</head>
 	<body>
@@ -30,7 +35,7 @@
 								<a class="nav-link" href="menu.php"><i class="fa fa-list-alt"></i> Menu</a>
 							</li>
 							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-fw fa-user"></i> Customer</a>
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-fw fa-user"></i> <?php echo $_SESSION['username'];?></a>
 								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 									<a class="dropdown-item" href="#"><i class="fas fa-edit"></i> Edit</a>
 									<a class="dropdown-item" href="#"><i class="fas fa-cookie-bite"></i> Order</a>
@@ -132,21 +137,26 @@
 				var date =$('#date').val();
 				var slot =$('#slot').val();
 				var person =$('#person').val();
-				// var status =$('#status').val();
+				//var status =$('#status').val();
+				//console.log(person);
+				
 
 				$.ajax({
-					url:"backreservation.php",
+					url:"./backreservation.php",
 					type:'post',
 					data:{
 						date:date,
 						slot:slot,
 						person:person,
-						// status:status
+						status:status
 
 						},
 
 						success:function(data,status)
 						{
+
+							//console.log(data);
+							
 							readRecords();
 						}
 				});
