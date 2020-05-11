@@ -27,26 +27,28 @@
 				$number=1;
 				while($row=$result->fetch_assoc()){
 				echo "<tr>
-					<td>".$number."</td>
-					<td>".$row['customer_id']."</td>
-					<td>".$row['username']."</td>
-					<td>".$row['email']."</td>
-					<td>".$row['mobile']."</td>
-					<td>".$row['address']."</td>
-					<td><input type="button" onClick="deleteme(<?php echo $row['empid']; ?>)" name="Delete" value="Delete"></td>
+						<td>".$number."</td>
+						<td>".$row['customer_id']."</td>
+						<td>".$row['username']."</td>
+						<td>".$row['email']."</td>
+						<td>".$row['mobile']."</td>
+						<td>".$row['address']."</td>
+					<td><input type="button" onClick="deleteme(<?php echo $row['customer_id']; ?>)" name="Delete" value="Delete"></td>
 				</tr>";
 				$number++;
 				<script language="javascript">
-				function deleteme(delid)
+				function deleteme($delid)
 				{
 				if(confirm("Do you want Delete!")){
-				window.location.href='delete.php?del_id=' +delid+'';
-				return true;
-				}
+				
+				
+				$deletequery="DELETE FROM `customer` WHERE customer_id='$delid' ";
+				mysqli_query($con,$deletequery);
+				
 				}
 				</script>
 				}
-			}
+				}
 				$con->close();
 				?>
 			</table>
