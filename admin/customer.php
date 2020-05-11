@@ -18,7 +18,6 @@
 					<th>Email</th>
 					<th>Mobile</th>
 					<th>Address </th>
-					<th>Action</th>
 				</tr>
 				
 				<?php include 'connection.php';
@@ -34,7 +33,6 @@
 						<td>".$row['email']."</td>
 						<td>".$row['mobile']."</td>
 						<td>".$row['address']."</td>
-						<td> </td>
 				</tr>";
 					$number++;
 				}

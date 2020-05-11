@@ -37,6 +37,10 @@ exit(); }
 			<i class="fas fa-calendar-check-o"></i>
 			<span>Reservation</span>
 		</a>
+		<a href="salesman.php">
+			<i class="fas fa-truck"></i>
+			<span>Salesman</span>
+		</a>
 		<a href="logout.php">
 			<i class='fas fa-sign-out-alt'></i>
 			<span>Logout</span>
