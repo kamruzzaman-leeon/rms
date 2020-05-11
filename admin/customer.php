@@ -7,9 +7,8 @@
 	<body>
 		<div class="container">
 			<div>
-			<h1 class="text-white bg-dark text-uppercase text-center">Customer Information</h1>
+				<h1 class="text-white bg-dark text-uppercase text-center">Customer Information</h1>
 			</div>
-			
 			<table class="table table-striped table-bordered text-center table-hover">
 				<tr>
 					<th>No</th>
@@ -28,26 +27,30 @@
 				$number=1;
 				while($row=$result->fetch_assoc()){
 				echo "<tr>
-						<td>".$number."</td>
-						<td>".$row['customer_id']."</td>
-						<td>".$row['username']."</td>
-						<td>".$row['email']."</td>
-						<td>".$row['mobile']."</td>
-						<td>".$row['address']."</td>
-						<td></td>
+					<td>".$number."</td>
+					<td>".$row['customer_id']."</td>
+					<td>".$row['username']."</td>
+					<td>".$row['email']."</td>
+					<td>".$row['mobile']."</td>
+					<td>".$row['address']."</td>
+					<td><input type="button" onClick="deleteme(<?php echo $row['empid']; ?>)" name="Delete" value="Delete"></td>
 				</tr>";
-					$number++;
+				$number++;
+				<script language="javascript">
+				function deleteme(delid)
+				{
+				if(confirm("Do you want Delete!")){
+				window.location.href='delete.php?del_id=' +delid+'';
+				return true;
 				}
 				}
-				else {
-				echo "0 results";
+				</script>
 				}
+			}
 				$con->close();
 				?>
 			</table>
+			
 		</div>
 	</body>
-	<script>
-	
-	</script>
 </html>
