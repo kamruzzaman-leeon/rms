@@ -33,7 +33,7 @@ exit(); }
 				<span>Customer</span>
 			</a>
 		</a>
-		<a href="#">
+		<a href="reservation.php">
 			<i class="fas fa-calendar-check-o"></i>
 			<span>Reservation</span>
 		</a>

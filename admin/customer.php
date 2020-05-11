@@ -6,8 +6,9 @@
 	</head>
 	<body>
 		<div class="container">
+			<div>
 			<h1 class="text-white bg-dark text-uppercase text-center">Customer Information</h1>
-			
+			</div>
 			
 			<table class="table table-striped table-bordered text-center table-hover">
 				<tr>
