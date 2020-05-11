@@ -4,6 +4,7 @@
 	<head>
 		<title>East-West Restaurant | Home</title>
 		<?php include'common/header.php';?>
+		<!-- echo "<script>console.log(".$_SESSION['customer_id'].");</script>"; -->
 	</head>
 	
 	<body>
@@ -30,7 +31,7 @@
 								<a class="nav-link" href="menu.php"><i class="fa fa-list-alt"></i> Menu<span class="sr-only">(current)</span></a>
 							</li>
 							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-fw fa-user"></i> Customer</a>
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-fw fa-user"></i><?php echo $_SESSION['username'];?> </a>
 								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 									<a class="dropdown-item" href="#"><i class="fas fa-edit"></i> Edit</a>
 									<a class="dropdown-item" href="#"><i class="fas fa-cookie-bite"></i> Order</a>
