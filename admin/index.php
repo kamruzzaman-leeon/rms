@@ -28,7 +28,7 @@ exit(); }
 				<i class='fas fa-hamburger'></i>
 				<span>Food Menu</span>
 			</a>
-			<a href="#">
+			<a href="customer.php">
 				<i class="fa fa-fw fa-user"></i>
 				<span>Customer</span>
 			</a>
