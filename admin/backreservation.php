@@ -1,0 +1,29 @@
+<?php
+	include 'connection.php';
+	$sql = "SELECT * FROM reservation NATURAL JOIN customer";
+	$result = $con->query($sql);
+	if ($result->num_rows > 0) {
+		$number=1;
+		while($row = $result->fetch_assoc()) {
+			// $p=$row['status']?'pending':'h';
+?>		
+		<tr>
+			<td><?=$number;?></td>
+			<td><?=$row['username'];?></td>
+			<td><?=$row['email'];?></td>
+			<td><?=$row['mobile'];?></td>
+			<td><?=$row['date'];?></td>
+			<td><?=$row['person'];?></td>
+			<td><?=$row['slot'];?></td>
+			<td><?=$row['status']?'pending':'h'?></td>
+			<td><button type="button" class="btn btn-success" data-dismiss="modal" onclick="change()">approve</button></td>
+		</tr>
+<?php	
+$number++;
+	}
+	}
+	else {
+		echo "0 results";
+	}
+	mysqli_close($con);
+?>

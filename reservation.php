@@ -55,7 +55,7 @@
 				</nav>
 			</header>
 			<div class="container">
-			<h1 class="text-primary text-uppercase text-center">Reservation</h1>
+			<h1 class="text-white text-uppercase text-center">Reservation</h1>
 			
 			<div class="d-flex justify-content-end">
 				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Add Reservation</button>
