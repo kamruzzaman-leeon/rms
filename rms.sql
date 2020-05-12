@@ -64,7 +64,7 @@ CREATE TABLE `customer` (
 INSERT INTO `customer` (`customer_id`, `username`, `email`, `mobile`, `address`, `password`, `trn_date`) VALUES
 (1, 'leeon', 'leeon@gmail.com', '11111111', 'fatullah,narayangonj', '1234', '2020-05-02 10:27:00'),
 (2, 'alam', 'alam@gmail.com', '454', 'fh;fglh', '1234', '2020-05-03 18:26:55'),
-(3, 'sheikh_sal', 'sheikhzaman2017@gmail.com', '3443545', 'Dhaka,Bangladesh', '123456', '2020-05-05 10:12:51');
+(3, 'sheikh_sal', 'sheik@gmail.com', '3443545', 'Dhaka,Bangladesh', '123456', '2020-05-05 10:12:51');
 
 -- --------------------------------------------------------
 
