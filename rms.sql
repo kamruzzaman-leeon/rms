@@ -98,10 +98,10 @@ INSERT INTO `food` (`food_id`, `foodname`, `foodtype`, `description`, `price`, `
 CREATE TABLE `reservation` (
   `reservation_id` int(255) NOT NULL,
   `customer_id` int(10) NOT NULL,
-  `date` date NOT NULL,
+  `date` date DEFAULT NULL,
   `person` int(255) NOT NULL,
   `slot` varchar(255) NOT NULL,
-  `status` varchar(255) NOT NULL DEFAULT 'Pending'
+  `status` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -109,7 +109,17 @@ CREATE TABLE `reservation` (
 --
 
 INSERT INTO `reservation` (`reservation_id`, `customer_id`, `date`, `person`, `slot`, `status`) VALUES
-(52, 1, '2020-05-12', 2, '12:00pm-1:00pm', 'Pending');
+(52, 2, '0000-00-00', 22, '12am to 1 pm', 1),
+(53, 1, '2020-05-14', 33, '12to1', 1),
+(54, 1, '2020-05-19', 0, '1 am to 2am', 1),
+(55, 1, '2020-05-23', 66, '2 am to 3am', 1),
+(58, 1, '2019-02-04', 5, '1 am to 2am', 1),
+(59, 2, '2019-05-02', 66, '2 am to 3am', 1),
+(60, 2, '2019-05-02', 66, '2 am to 3am', 1),
+(61, 1, '2020-05-13', 4, '6:00pm-7:00pm', 1),
+(62, 1, '2020-05-13', 422, '6:00pm-7:00pm', 1),
+(63, 1, '2020-05-13', 422, '12:00pm-1:00pm', 1),
+(64, 1, '2020-05-13', 5, '12:00pm-1:00pm', 1);
 
 -- --------------------------------------------------------
 
