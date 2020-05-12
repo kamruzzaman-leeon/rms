@@ -27,7 +27,11 @@
   </table>	
 		</div>
 		<script>
-	$.ajax({
+
+		
+	
+	function loadDATA() {
+			$.ajax({
 		url: "backreservation.php",
 		type: "POST",
 		cache: false,
@@ -36,5 +40,35 @@
 			$('#table').html(data); 
 		}
 	});
+	}
+
+
+	function change(reservation_id) {
+		console.log(reservation_id);
+		$.ajax({
+		url: "reservation_approve.php",
+		type: "POST",
+		data:{
+			reservation_id:reservation_id
+		},
+		
+		success: function(data){
+			
+			
+			
+				loadDATA();
+			
+			
+
+
+		}
+	});
+		
+	}
+
+
+	//main
+	loadDATA()
+
 </script>
 	</body>
