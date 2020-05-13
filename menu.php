@@ -88,7 +88,89 @@
 		}
 		});
 		}
-		loadDATA()
+		function fooditemSelected(id) {
+			console.log(id);
+					$.ajax({
+				url: "cart.php",
+				type: "POST",
+				data:{
+					addtoCart:true,
+					id:id
+				},
+				cache: false,
+				success: function(data){
+					console.log(data);
+					loadtotalItem();
+					AllFoodsItms();
+					GetTotalPrice();
+					
+				}
+				});
+		}
+
+	
+		loadDATA();
+
+		function loadtotalItem(){
+
+
+			$.ajax({
+				url: "cart.php",
+				type: "POST",
+				data:{
+					countFooditem:true
+				
+				},
+				cache: false,
+				success: function(data){
+					console.log(data);
+					
+				}
+				});
+
+		}
+			function AllFoodsItms(){
+
+
+			$.ajax({
+			url: "cart.php",
+			type: "POST",
+			data:{
+			allFooditems:true
+
+			},
+			cache: false,
+			success: function(data){
+			console.log(data);
+
+			}
+			});
+
+			}
+			function GetTotalPrice(){
+
+
+				$.ajax({
+				url: "cart.php",
+				type: "POST",
+				data:{
+					totalPrice:true
+
+				},
+				cache: false,
+				success: function(data){
+					
+				console.log(data);
+
+				}
+				});
+
+				}
+
+		
+
+
+
 		</script>
 		
 	</body>
