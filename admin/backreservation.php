@@ -5,7 +5,7 @@
 	if ($result->num_rows > 0) {
 		$number=1;
 		while($row = $result->fetch_assoc()) {
-			// $p=$row['status']?'pending':'h';
+			
 ?>		
 		<tr>
 			<td><?=$number;?></td>
@@ -15,7 +15,7 @@
 			<td><?=$row['date'];?></td>
 			<td><?=$row['person'];?></td>
 			<td><?=$row['slot'];?></td>
-			<td><?=$row['status']?'Pending':'Approve'?></td>
+			<td><?=$row['status']?'pending':'approve'?></td>
 			<td><button type="button" class="btn btn-success" data-dismiss="modal" onclick="change(<?=$row['reservation_id'];?>)">approve</button></td>
 		</tr>
 		

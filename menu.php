@@ -9,6 +9,7 @@
 	
 	<body>
 		<div>
+
 			<header>
 				<!-- header part -->
 				<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -33,7 +34,7 @@
 							<li class="nav-item dropdown">
 								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-fw fa-user"></i><?php echo $_SESSION['username'];?> </a>
 								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-									<a class="dropdown-item" href="#"><i class="fas fa-edit"></i> Edit</a>
+									<a class="dropdown-item" href="edit.php"><i class="fas fa-edit"></i> Edit</a>
 									<a class="dropdown-item" href="#"><i class="fas fa-cookie-bite"></i> Order</a>
 									<div class="dropdown-divider"></div><a class="dropdown-item" href="logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
 								</div>
@@ -50,4 +51,45 @@
 					</div>
 				</nav>
 			</header>
-			<?php include'common/footer.php'; ?>
+		</div>
+			<br>
+			
+			<div class="container">
+				<h1 class="text-white bg-dark text-uppercase text-center">Food Menu</h1>
+				<table class="table table-bordered table-striped text-center table-hover table-sm">
+					<thead>
+						<tr>
+							<th>No.</th>
+							<th>Food Name</th>
+							<th>Food Type</th>
+							<th>Description</th>
+							<th>Price</th>
+							<th>Availability</th>
+							<th>Action</th>
+						</tr>
+					</thead>
+					<tbody id="table">
+						
+					</tbody>
+				</table>
+			</div>
+		
+		<?php include'common/footer.php'; ?>
+		<script>
+		
+		
+		function loadDATA() {
+			$.ajax({
+		url: "backmenu.php",
+		type: "POST",
+		cache: false,
+		success: function(data){
+			$('#table').html(data);
+		}
+		});
+		}
+		loadDATA()
+		</script>
+		
+	</body>
+</html>

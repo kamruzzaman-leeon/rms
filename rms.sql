@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 11, 2020 at 07:17 PM
+-- Generation Time: May 13, 2020 at 10:06 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.3
 
@@ -119,7 +119,8 @@ INSERT INTO `reservation` (`reservation_id`, `customer_id`, `date`, `person`, `s
 (61, 1, '2020-05-13', 4, '6:00pm-7:00pm', 1),
 (62, 1, '2020-05-13', 422, '6:00pm-7:00pm', 1),
 (63, 1, '2020-05-13', 422, '12:00pm-1:00pm', 1),
-(64, 1, '2020-05-13', 5, '12:00pm-1:00pm', 1);
+(64, 1, '2020-05-13', 5, '12:00pm-1:00pm', 1),
+(65, 1, '2020-05-12', 111, '1:30pm-2:30pm', 1);
 
 -- --------------------------------------------------------
 
@@ -201,7 +202,7 @@ ALTER TABLE `food`
 -- AUTO_INCREMENT for table `reservation`
 --
 ALTER TABLE `reservation`
-  MODIFY `reservation_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `reservation_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 
 --
 -- AUTO_INCREMENT for table `salesman`

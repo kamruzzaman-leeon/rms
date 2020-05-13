@@ -34,7 +34,7 @@
 							<li class="nav-item dropdown">
 								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-fw fa-user"></i><?php echo $_SESSION['username'];?></a>
 								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-									<a class="dropdown-item" href="#"><i class="fas fa-edit"></i> Edit</a>
+									<a class="dropdown-item" href="edit.php"><i class="fas fa-edit"></i> Edit</a>
 									<a class="dropdown-item" href="#"><i class="fas fa-cookie-bite"></i> Order</a>
 									<div class="dropdown-divider"></div><a class="dropdown-item" href="logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
 								</div>

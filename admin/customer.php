@@ -10,7 +10,7 @@
 			
 			
 			
-			<table class="table table-striped table-bordered text-center table-hover">
+			<table class="table table-striped table-bordered text-center table-hover table-sm">
 				<tr>
 					<th>No</th>
 					<th>Customer ID</th>

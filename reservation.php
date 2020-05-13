@@ -113,7 +113,7 @@
 				</div>
 			</div>	
 	</section>
-<?php include'common/footer.php'; ?> 
+	<?php include'common/footer.php'; ?> 
 		<script>
 			$(document).ready(function()
 			{
