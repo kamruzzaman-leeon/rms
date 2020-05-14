@@ -21,7 +21,7 @@ if(isset($_POST['readrecord'])){
 	if(mysqli_num_rows($result) > 0){
 		$number = 1;
 		while ($row = mysqli_fetch_array($result)){
-			$p=$row['status']?'pending':'h';
+			$p=$row['status']?'pending':'approve';
 			$data.='<tr>
 			<td>'.$number.'</td>
 			<td>'.$row['date'].'</td>
