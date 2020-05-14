@@ -40,7 +40,8 @@
 								</div>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="#"><i class="fa fa-cart-plus"></i> Cart</a>
+								<a class="nav-link" href="#" ><i class="fa fa-cart-plus"></i> <spam id="cart">Cart</spam></a>
+								
 							</li>
 							
 						</ul>
@@ -110,6 +111,7 @@
 
 	
 		loadDATA();
+		AllFoodsItms();
 
 		function loadtotalItem(){
 
@@ -142,6 +144,7 @@
 			cache: false,
 			success: function(data){
 			console.log(data);
+			$('#cart').html("Cart "+data);
 
 			}
 			});
