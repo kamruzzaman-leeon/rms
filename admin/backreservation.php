@@ -16,7 +16,7 @@
 			<td><?=$row['person'];?></td>
 			<td><?=$row['slot'];?></td>
 			<td><?=$row['status']?'pending':'approve'?></td>
-			<td><button type="button" class="btn btn-success" data-dismiss="modal" onclick="change(<?=$row['reservation_id'];?>)">approve</button></td>
+			<td><button type="button" class="btn btn-<?=$row['status']?'success':'disable'?> " data-dismiss="modal" onclick="change(<?=$row['reservation_id'];?>)">approve</button></td>
 		</tr>
 		
 <?php	

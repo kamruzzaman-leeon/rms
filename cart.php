@@ -57,15 +57,18 @@ if (isset($_POST['totalPrice'])) {
 
     //query the price of food item 
     $price=null;
+    $name=null;
     $query="SELECT * FROM `food` WHERE `food_id` = $food_id";
     $result = mysqli_query($GLOBALS['con'],$query) or die(mysql_error());
     $rows = mysqli_num_rows($result);
     if($rows==1){
         $row = $result->fetch_assoc();
         $price=$row['price'];
+        $name=$row['foodname'];
     }
 
     $_SESSION['cart'][$food_id]['price']=$price;
+    $_SESSION['cart'][$food_id]['name']=$name;
     if($existInarray){
         //update quantity  
         $_SESSION['cart'][$food_id]['quantity']=$_SESSION['cart'][$food_id]['quantity']+1;
@@ -77,6 +80,7 @@ if (isset($_POST['totalPrice'])) {
     echo "done";
 
 }
+
  function countFooditem()
 {
     $total_item=0;

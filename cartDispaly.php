@@ -56,23 +56,34 @@
 			<br>
 			
 			<div class="container">
-				<h1 class="text-white bg-dark text-uppercase text-center">Food Menu</h1>
+				<h1 class="text-white bg-dark text-uppercase text-center">Your Cart</h1>
 				<table class="table table-bordered table-striped text-center table-hover table-sm">
 					<thead>
 						<tr>
 							<th>No.</th>
 							<th>Food Name</th>
-							<th>Food Type</th>
-							<th>Description</th>
-							<th>Price</th>
-							<th>Availability</th>
-							<th>Action</th>
+							<th>quantity</th>
+							<th>price</th>
+							
 						</tr>
 					</thead>
 					<tbody id="table">
-						
+                        <?php 
+                        
+                        $k=1;
+                        if(isset($_SESSION['cart'])){
+
+                       
+                        foreach ($_SESSION['cart'] as $key => $value) {
+                            echo "<tr><td>".$k."</td><td>".$value['name']."</td><td>".$value['price']."</td><td>".$value['quantity']."</td></tr>";
+                            $k++;
+                        }
+                    }
+                        ?>
 					</tbody>
 				</table>
+                
+                <a href="./placeorder.php">place order</a>
 			</div>
 		
 		<?php include'common/footer.php'; ?>
@@ -111,7 +122,7 @@
 		}
 
 	
-		loadDATA();
+		//loadDATA();
 		AllFoodsItms();
 
 		function loadtotalItem(){

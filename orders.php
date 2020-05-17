@@ -35,7 +35,7 @@
 								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-fw fa-user"></i><?php echo $_SESSION['username'];?> </a>
 								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 									<a class="dropdown-item" href="edit.php"><i class="fas fa-edit"></i> Edit</a>
-									<a class="dropdown-item" href="./orders.php"><i class="fas fa-cookie-bite"></i> Order</a>
+									<a class="dropdown-item" href="#"><i class="fas fa-cookie-bite"></i> Order</a>
 									<div class="dropdown-divider"></div><a class="dropdown-item" href="logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
 								</div>
 							</li>
@@ -56,23 +56,73 @@
 			<br>
 			
 			<div class="container">
-				<h1 class="text-white bg-dark text-uppercase text-center">Food Menu</h1>
-				<table class="table table-bordered table-striped text-center table-hover table-sm">
-					<thead>
-						<tr>
-							<th>No.</th>
-							<th>Food Name</th>
-							<th>Food Type</th>
-							<th>Description</th>
-							<th>Price</th>
-							<th>Availability</th>
-							<th>Action</th>
-						</tr>
-					</thead>
-					<tbody id="table">
-						
-					</tbody>
-				</table>
+				<h1 class="text-white bg-dark text-uppercase text-center">your orders</h1>
+				
+                        <?php 
+                        include 'db.php';
+                      
+                        function fetch_data($sql) {
+                            $result = $GLOBALS['con']->query($sql);
+                            if ($result->num_rows > 0) {
+                                $data = mysqli_fetch_all($result,MYSQLI_ASSOC);
+                                return $data;
+                            }else{
+                              echo $GLOBALS['con']->error;
+                              return  array( );
+                            }
+                          }
+
+                        $sql ="SELECT * FROM `orderstable` WHERE u_id='".$_SESSION['customer_id']."' ORDER BY id DESC";
+                        $data=fetch_data($sql);
+                      
+                        for ($i=0; $i < count($data); $i++) { 
+                        ?>
+
+                        <div class="containser">
+
+
+                            <div class ='jumbotron'>
+                            <h5>order id : <?=$data[$i]['id']?></h5>
+                                <table class="table table-bordered table-striped text-center table-hover table-sm">
+                                <thead>
+                                <th>
+                                <td>name</td>
+                                <td>price</td>
+                                <td>quantity</td>
+                                </th>
+                                </thead>
+                                    <tbody>
+                                    <?php
+                                    $sql="SELECT * FROM `orderitem` WHERE orders_id='".$data[$i]['id']."' ";
+
+                                    $orders_items=fetch_data($sql);
+
+                                    for ($j=0; $j < count($orders_items); $j++) {
+                                        
+                                        $sql="SELECT foodname FROM `food` WHERE food_id=".$orders_items[$j]['food_id'];
+                                        $food_name=fetch_data($sql)[0]['foodname'];
+                                    ?>
+
+                                        <tr>
+                                            <td></td>
+                                            <td><?=$food_name;?></td>
+                                            <td><?=$orders_items[$j]['price'];?></td>
+                                            <td><?=$orders_items[$j]['quantity'];?></td>
+                                        </tr>
+                                    <?php } ?>
+                                    </tbody>
+
+                                </table>
+                            
+                            
+                            </div>
+                        </div>
+                           
+                        
+                        <?php }?>
+                        
+				
+            
 			</div>
 		
 		<?php include'common/footer.php'; ?>
@@ -111,7 +161,7 @@
 		}
 
 	
-		loadDATA();
+		//loadDATA();
 		AllFoodsItms();
 
 		function loadtotalItem(){
