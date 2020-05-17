@@ -90,28 +90,30 @@ if (isset($_POST['totalPrice'])) {
     return $total_item;
 }
 function coutAllFooditems()
-{
-    $total_item=0;
-    foreach ($_SESSION['cart'] as $key => $value) {
-        $total_item+=$value['quantity'];
-        //$total_item++;
+    {
+        $total_item=0;
+        foreach ($_SESSION['cart'] as $key => $value) {
+            $total_item+=$value['quantity'];
+            //$total_item++;
+        }
+        return $total_item;
     }
-    return $total_item;
-}
 function totalPrice()
-{
-    $totalPrice=0;
-    foreach ($_SESSION['cart'] as $key => $value) {
-        $price=$value['price']*$value['quantity'];
-        $totalPrice+=$price;
-    
+    {
+        $totalPrice=0;
+        foreach ($_SESSION['cart'] as $key => $value) {
+            $price=$value['price']*$value['quantity'];
+            $totalPrice+=$price;
+        
+        }
+        return $totalPrice;
     }
-    return $totalPrice;
-}
- function clearCart()
-{
-    unset($_SESSION['cart']);
-}
+
+
+function clearCart()
+    {
+        unset($_SESSION['cart']);
+    }
 
 
 
