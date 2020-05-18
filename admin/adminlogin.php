@@ -23,6 +23,7 @@
 						<div class="text-center">
 						<input type="submit" class="btn btn-success " name="submit"></div>
 					</form>
+					<p class="text-white text-center text-capitalize">full project completed by kamruzzaman leeon</p>
 					<!-- form end -->
 				</div>
 				<div class="col-md-4 col-sm-4 col-xs-12"></div>

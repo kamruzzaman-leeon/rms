@@ -7,7 +7,7 @@
 	<body>
 		<div class="container">
 			<h1 class="text-primary text-uppercase text-center">Food Menu</h1>
-			
+			<!-- <p class="text-white text-center text-capitalize">full project completed by kamruzzaman leeon</p> -->
 			<div class="d-flex justify-content-end">
 				<button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Add Food</button>
 			</div>

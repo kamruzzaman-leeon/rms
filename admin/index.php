@@ -32,19 +32,22 @@ exit(); }
 				<i class="fa fa-fw fa-user"></i>
 				<span>Customer</span>
 			</a>
-		</a>
-		<a href="reservation.php">
-			<i class="fas fa-calendar-check-o"></i>
-			<span>Reservation</span>
-		</a>
-		<a href="salesman.php">
-			<i class="fas fa-truck"></i>
-			<span>Salesman</span>
-		</a>
-		<a href="logout.php">
-			<i class='fas fa-sign-out-alt'></i>
-			<span>Logout</span>
-		</a>
-	</div>
-</body>
+			<a href="order.php">
+				<i class="fas fa-cookie-bite"></i> <span>Order</span>
+			</a>
+			<a href="reservation.php">
+				<i class="fas fa-calendar-check-o"></i>
+				<span>Reservation</span>
+			</a>
+			<a href="salesman.php">
+				<i class="fas fa-truck"></i>
+				<span>Salesman</span>
+			</a>
+			<a href="logout.php">
+				<i class='fas fa-sign-out-alt'></i>
+				<span>Logout</span>
+			</a>
+		</div>
+		<p class="text-white text-center text-capitalize">full project completed by kamruzzaman leeon</p>
+	</body>
 </html>

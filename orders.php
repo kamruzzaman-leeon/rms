@@ -87,8 +87,8 @@
                                 <thead>
                                 <th>
                                 <td>name</td>
-                                <td>price</td>
                                 <td>quantity</td>
+                                <td>price</td>
                                 </th>
                                 </thead>
                                     <tbody>
@@ -106,8 +106,8 @@
                                         <tr>
                                             <td></td>
                                             <td><?=$food_name;?></td>
-                                            <td><?=$orders_items[$j]['price'];?></td>
                                             <td><?=$orders_items[$j]['quantity'];?></td>
+                                            <td><?=$orders_items[$j]['price'];?></td>
                                         </tr>
                                     <?php } ?>
                                     </tbody>

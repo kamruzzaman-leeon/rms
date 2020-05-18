@@ -37,6 +37,7 @@
 						<h5 class="text-center">Not registered yet? <a href='registration.php'>Register Here</a></h5>
 					</form>
 					<!-- form end -->
+					<p class="text-white text-center text-capitalize">full project completed by kamruzzaman leeon</p>
 				</div>
 				<div class="col-md-4 col-sm-4 col-xs-12"></div>
 			</div>

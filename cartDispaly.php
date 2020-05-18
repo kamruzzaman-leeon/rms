@@ -75,7 +75,7 @@
 
                        
                         foreach ($_SESSION['cart'] as $key => $value) {
-                            echo "<tr><td>".$k."</td><td>".$value['name']."</td><td>".$value['price']."</td><td>".$value['quantity']."</td></tr>";
+                            echo "<tr><td>".$k."</td><td>".$value['name']."</td><td>".$value['quantity']."</td><td>".$value['price ']."</td></tr>";
                             $k++;
                         }
                     }
@@ -83,7 +83,8 @@
 					</tbody>
 				</table>
                 
-                <a href="./placeorder.php">place order</a>
+                <a href="./placeorder.php"><button type="button" class="btn btn-success" >place order</button></a>
+                <a href="./menu.php"><button type="button" class="btn btn-primary">Add More Food</button></a>
 			</div>
 		
 		<?php include'common/footer.php'; ?>

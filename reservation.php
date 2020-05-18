@@ -112,6 +112,7 @@
 					</div>
 				</div>
 			</div>	
+			<p class="text-white text-center text-capitalize">full project completed by kamruzzaman leeon</p>
 	</section>
 	<?php include'common/footer.php'; ?> 
 		<script>

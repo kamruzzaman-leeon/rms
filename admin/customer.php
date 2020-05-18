@@ -44,6 +44,7 @@
 				?>
 			</table>
 		</div>
+		<p class="text-white text-center text-capitalize">full project completed by kamruzzaman leeon</p>
 	</body>
 	
 </html>

@@ -46,7 +46,7 @@
 				</div>
 			</div>
 
-
+<!-- <p class="text-white text-center text-capitalize">full project completed by kamruzzaman leeon</p> -->
 			<!--///////// update modal//////////// -->
 			<div class="modal" id="update_salesman_modal">
 				<div class="modal-dialog">
