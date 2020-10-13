@@ -3,7 +3,7 @@ rms means restaurant management system
 
 full project completed by kamruzzaman leeon
 To run this project,we need xamapp.
-download this rms folder then unzip into hhtdoc floder,which is place on xamapp install floder.
+download this rms folder then unzip into htdoc floder,which is place on xamapp install floder.
 then import rms.sql into database.
 then run xamapp apache & mysql.
 open any browser then type http://localhost/(location) (for example http://localhost/rms/)
